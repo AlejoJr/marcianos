@@ -1,0 +1,28 @@
+{% extends 'base/base.html'%}
+<html>
+<body>
+
+{% block content %}
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Identificador</th>
+        <th scope="col">Nombre</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if pasajeros %}
+    {% for pasajero in pasajeros%}
+    <tr class="table-active">
+        <td>{{ pasajero.id }}</td>
+        <td>{{ pasajero.nombre }}</td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros de Pasajeros</h1>
+    {% endif %}
+    </tbody>
+</table>
+{%endblock%}
+</body>
+</html>

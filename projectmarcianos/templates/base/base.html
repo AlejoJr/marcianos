@@ -1,0 +1,56 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Titulo JR {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body>
+<div class="container">
+    {% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">SIGEM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inicio
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Navesnodriza</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Aeronaves</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pasajeros</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {% endblock %}
+
+
+
+
+    {% block content %}
+    <h4>Este es el contenido del content base</h4>
+    {% endblock %}
+
+    {% block footer %}
+    <h4>Este es el contenido del footer base</h4>
+    {% endblock %}
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

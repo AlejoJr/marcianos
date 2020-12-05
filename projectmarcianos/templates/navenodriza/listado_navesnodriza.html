@@ -1,0 +1,30 @@
+{% extends 'base/base.html'%}
+<html>
+<body>
+
+{% block content %}
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Codigo</th>
+        <th scope="col">Nombre</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if navesnodrizas %}
+    {% for navenodriza in navesnodrizas%}
+    <tr class="table-active">
+        <td>{{ navenodriza.id }}</td>
+        <td>{{ navenodriza.identificador }}</td>
+        <td>{{ navenodriza.nombre }}</td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros de Navesnodrizas</h1>
+    {% endif %}
+    </tbody>
+</table>
+{%endblock%}
+</body>
+</html>

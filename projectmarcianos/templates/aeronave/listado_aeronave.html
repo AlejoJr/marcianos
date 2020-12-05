@@ -1,0 +1,34 @@
+{% extends 'base/base.html'%}
+<html>
+<body>
+
+{% block content %}
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Identificador</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Cupo</th>
+        <th scope="col">Origen Nave Nodriza</th>
+        <th scope="col">Destino Nave Nodriza</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if aeronaves %}
+    {% for aeronave in aeronaves%}
+    <tr class="table-active">
+        <td>{{ aeronave.id }}</td>
+        <td>{{ aeronave.nombre }}</td>
+        <td>{{ aeronave.max_marcianos }}</td>
+        <td>{{ aeronave.origen }}</td>
+        <td>{{ aeronave.destino }}</td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros de Aeronaves</h1>
+    {% endif %}
+    </tbody>
+</table>
+{%endblock%}
+</body>
+</html>

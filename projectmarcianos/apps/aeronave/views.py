@@ -20,6 +20,13 @@ def aeronave_edit(request,id_aeronave):
 
     return render(request, 'aeronave/aeronave_form.html', {'form':form})
 
+def aeronave_delete(request,id_aeronave):
+    aeronave = Aeronave.objects.get(id=id_aeronave)
+    if request.method == 'POST':
+        aeronave.delete()
+        return redirect('aeronave:aeronave_lista')
+    return render(request, 'aeronave/aeronave_delete.html', {'aeronave':aeronave})
+
 def aeronave_view(request):
     if request.method == 'POST':
         form = AeronaveForm(request.POST)

@@ -5,6 +5,7 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Crear</button>
+    <a class="btn btn-default" href="{% url  'navenodriza:navenodriza_lista' %}">Cancelar</a>
 </form>
 {% endblock %}
 <!--<!DOCTYPE html>

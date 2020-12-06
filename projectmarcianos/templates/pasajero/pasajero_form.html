@@ -4,7 +4,8 @@
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Crear</button>
+    <button type="submit">Guardar</button>
+    <a class="btn btn-default" href="{% url  'pasajero:pasajero_lista' %}">Cancelar</a>
 </form>
 {% endblock %}
 <!--<!DOCTYPE html>

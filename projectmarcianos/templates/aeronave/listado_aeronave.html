@@ -11,9 +11,11 @@
         <th scope="col">Cupo</th>
         <th scope="col">Origen Nave Nodriza</th>
         <th scope="col">Destino Nave Nodriza</th>
+        <th scope="col">Acciones</th>
     </tr>
     </thead>
     <tbody>
+    <a class="btn btn-primary" href="{% url  'aeronave:aeronave_crear' %}">Nuevo</a>
     {% if aeronaves %}
     {% for aeronave in aeronaves%}
     <tr class="table-active">
@@ -22,6 +24,10 @@
         <td>{{ aeronave.max_marcianos }}</td>
         <td>{{ aeronave.origen }}</td>
         <td>{{ aeronave.destino }}</td>
+        <td>
+            <a class="btn btn-primary" href="{% url  'aeronave:aeronave_editar' aeronave.id %}">Editar</a>
+            <a class="btn btn-danger" href="{% url  'aeronave:aeronave_eliminar' aeronave.id %}">Eliminar</a>
+        </td>
     </tr>
     {% endfor %}
     {% else %}

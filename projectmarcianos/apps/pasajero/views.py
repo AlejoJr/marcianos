@@ -20,6 +20,13 @@ def pasajero_edit(request,id_pasajero):
 
     return render(request, 'pasajero/pasajero_form.html', {'form':form})
 
+def pasajero_delete(request,id_pasajero):
+    pasajero = Pasajero.objects.get(id=id_pasajero)
+    if request.method == 'POST':
+        pasajero.delete()
+        return redirect('pasajero:pasajero_lista')
+    return render(request, 'pasajero/pasajero_delete.html', {'pasajero':pasajero})
+
 def pasajero_view(request):
     if request.method == 'POST':
         form = PasajeroForm(request.POST)

@@ -3,12 +3,14 @@
 <body>
 
 {% block content %}
+<a class="btn btn-primary" href="{% url  'navenodriza:navenodriza_crear' %}">Nuevo</a>
 <table class="table table-hover">
     <thead>
     <tr>
         <th scope="col">Id</th>
         <th scope="col">Codigo</th>
         <th scope="col">Nombre</th>
+        <th scope="col">Acciones</th>
     </tr>
     </thead>
     <tbody>
@@ -18,6 +20,10 @@
         <td>{{ navenodriza.id }}</td>
         <td>{{ navenodriza.identificador }}</td>
         <td>{{ navenodriza.nombre }}</td>
+        <td>
+            <a class="btn btn-primary" href="{% url  'navenodriza:navenodriza_editar' navenodriza.id %}">Editar</a>
+            <a class="btn btn-danger" href="{% url  'navenodriza:navenodriza_eliminar' navenodriza.id %}">Eliminar</a>
+        </td>
     </tr>
     {% endfor %}
     {% else %}

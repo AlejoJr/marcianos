@@ -3,6 +3,9 @@ from apps.navenodriza.forms import NavenodrizaForm
 from apps.navenodriza.models import NaveNodriza
 
 # Create your views here.
+def index(request):
+    return render(request, 'base/index.html')
+
 def navenodriza_lista(request):
     navenodriza = NaveNodriza.objects.all().order_by('id')
     contexto = {'navesnodrizas':navenodriza}
@@ -19,6 +22,13 @@ def navenodriza_edit(request,id_navenodriza):
         form = NavenodrizaForm(instance=navenodriza)
 
     return render(request, 'navenodriza/navenodriza_form.html', {'form':form})
+
+def navenodriza_delete(request,id_navenodriza):
+    navenodriza = NaveNodriza.objects.get(id=id_navenodriza)
+    if request.method == 'POST':
+        navenodriza.delete()
+        return redirect('navenodriza:navenodriza_lista')
+    return render(request, 'navenodriza/navenodriza_delete.html', {'navenodriza':navenodriza})
 
 
 def navenodriza_view(request):

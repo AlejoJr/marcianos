@@ -8,14 +8,20 @@
     <tr>
         <th scope="col">Identificador</th>
         <th scope="col">Nombre</th>
+        <th scope="col">Acciones</th>
     </tr>
     </thead>
     <tbody>
+    <a class="btn btn-primary" href="{% url  'pasajero:pasajero_crear' %}">Nuevo</a>
     {% if pasajeros %}
     {% for pasajero in pasajeros%}
     <tr class="table-active">
         <td>{{ pasajero.id }}</td>
         <td>{{ pasajero.nombre }}</td>
+         <td>
+            <a class="btn btn-primary" href="{% url  'pasajero:pasajero_editar' pasajero.id %}">Editar</a>
+            <a class="btn btn-danger" href="{% url  'pasajero:pasajero_eliminar' pasajero.id %}">Eliminar</a>
+        </td>
     </tr>
     {% endfor %}
     {% else %}

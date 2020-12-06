@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 
+app_name = "main"
 urlpatterns = [
+    #re_path(r'^index/', include('apps.navenodriza.urls')),
     path('admin/', admin.site.urls),
     re_path(r'^navenodriza/', include('apps.navenodriza.urls')),
     re_path(r'^aeronave/', include('apps.aeronave.urls')),

@@ -11,8 +11,11 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-
+#from django.core.urlresolvers import reverse_lazy
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django.conf.global_settings import LOGIN_REDIRECT_URL
+from django.urls import reverse_lazy
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'apps.navenodriza',
     'apps.aeronave',
     'apps.pasajero',
+    'apps.usuario',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +131,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+LOGIN_REDIRECT_URL = reverse_lazy('navenodriza:navenodriza_lista')

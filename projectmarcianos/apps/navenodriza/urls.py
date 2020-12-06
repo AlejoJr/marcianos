@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.urls import path, re_path
-from apps.navenodriza.views import navenodriza_lista, navenodriza_view, navenodriza_edit, navenodriza_delete, index
+from apps.navenodriza.views import navenodriza_lista, navenodriza_view, navenodriza_edit, navenodriza_delete
 
 app_name = "navenodriza"
 urlpatterns = [

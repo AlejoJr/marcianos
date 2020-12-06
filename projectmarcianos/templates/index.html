@@ -1,0 +1,47 @@
+{% extends 'base/base.html'%}
+{% block title %}
+App Marcianos
+{% endblock %}
+{% block navbar %}
+{% endblock %}
+{% block content %}
+<body class="h-100 bg-primary">
+<div class="container h-100">
+    <div class="row justify-content-center h-100">
+        <div class="col-sm-8 align-self-center text-center">
+            <div class="card shadow">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <label for="username">Nombre de usuario:</label>
+                                    <input class="form-control" type="text" name="username">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <label for="username">Contraseña:</label>
+                                    <input class="form-control" type="text" name="password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <a href="#">Olvide mi contraseña</a>
+                                    <input class="btn btn-primary" type="submit" value="Ingresar">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+{% endblock %}

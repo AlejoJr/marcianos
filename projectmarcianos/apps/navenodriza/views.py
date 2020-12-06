@@ -3,8 +3,6 @@ from apps.navenodriza.forms import NavenodrizaForm
 from apps.navenodriza.models import NaveNodriza
 
 # Create your views here.
-def index(request):
-    return render(request, 'base/index.html')
 
 def navenodriza_lista(request):
     navenodriza = NaveNodriza.objects.all().order_by('id')

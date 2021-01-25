@@ -33,6 +33,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url  'pasajero:pasajero_lista' %}">Pasajeros</a>
                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url  'aeronave:gestionar_pasajero' %}">Gestionar Pasajero</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url  'aeronave:pasajero_aeronaves_lista' %}">Lista Pasajeros en aeronaves</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -43,7 +49,7 @@
     {% endblock %}
 
     {% block footer %}
-    <h4>Este es el contenido del footer base</h4>
+    <!--<h4>Este es el contenido del footer base</h4>-->
     {% endblock %}
 </div>
 

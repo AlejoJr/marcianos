@@ -27,6 +27,7 @@
         <td>
             <a class="btn btn-primary" href="{% url  'aeronave:aeronave_editar' aeronave.id %}">Editar</a>
             <a class="btn btn-danger" href="{% url  'aeronave:aeronave_eliminar' aeronave.id %}">Eliminar</a>
+            <a class="btn btn-primary" href="{% url  'aeronave:aeronave_revisar' aeronave.id %}">Revisar</a>
         </td>
     </tr>
     {% endfor %}

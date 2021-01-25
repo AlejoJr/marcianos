@@ -1,0 +1,30 @@
+{% extends 'base/base.html'%}
+<html>
+<body>
+
+{% block content %}
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Aeronave</th>
+        <th scope="col">Pasajero</th>
+        <th scope="col">Activo</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if gestionPasajeros %}
+    {% for gestionPasajero in gestionPasajeros%}
+    <tr class="table-active">
+        <td>{{ gestionPasajero.aeronave }}</td>
+        <td>{{ gestionPasajero.pasajero }}</td>
+        <td>{{ gestionPasajero.activo }}</td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros de Pasajeros en aeronaves</h1>
+    {% endif %}
+    </tbody>
+</table>
+{%endblock%}
+</body>
+</html>

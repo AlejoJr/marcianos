@@ -1,0 +1,46 @@
+{% extends 'base/base.html'%}
+<body>
+{% block content %}
+    {% if revisada %}
+        <h1>LA NAVE YA FUE REVISADA HOY</h1>
+        <a class="btn btn-default" href="{% url  'aeronave:aeronave_lista' %}">Cancelar</a>
+    {% else %}
+        <form method="post">
+    {% csrf_token %}
+        <label>Codigo Revision:</label>
+        {{ form.identificador }}
+            <label>Nombre Supervisor:</label>
+        {{ form.nombre }}
+            <label>Fecha:</label>
+        {{ form.fecha }}
+    <button type="submit">Guardar</button>
+    <a class="btn btn-default" href="{% url  'aeronave:aeronave_lista' %}">Cancelar</a>
+    </form>
+    <table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Aeronave</th>
+        <th scope="col">Pasajero</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if objetounos %}
+    {% for objetouno in objetounos%}
+    <tr class="table-active">
+        <td>{{ objetouno.id }}</td>
+        <td>{{ objetouno.aeronave }}</td>
+        <td>{{ objetouno.pasajero }}</td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay pasajeros en esta aeronave</h1>
+    {% endif %}
+    {% endif %}
+
+    </tbody>
+</table>
+{%endblock%}
+
+</body>
+</html>

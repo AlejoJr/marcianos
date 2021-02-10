@@ -1,9 +1,17 @@
 
-llamadas_cluster$COD_LOCALIDAD = NULL
-llamadas_cluster$POBLACION = NULL
-llamadas_cluster$RATIO = NULL
-llamadas_cluster$CANT_LLAMADAS = NULL
-
-#Eliminar ciudades donde no registra llamadas
-llamadas_cluster = llamadas_cluster[-c(20), ]
+for (i in 1:nrow(delitos_ABC))
+{
+  #filtramos tipo de accidente
+  c =datos_del_2018[datos_del_2018$TIPO_INCIDENTE==delitos_ABC$TIPO_INCIDENTE[i],]
+  #creamos el nombre de la columna
+  colName <- paste("D_",delitos_ABC$TIPO_INCIDENTE[i], sep="")
+  
+  
+  #agregamos la cantidad de llamadas anuales por localidad por cada 10000
+  llamadas_localidad[colName] = c$cant_llamadas[match( llamadas_localidad$COD_LOCALIDAD, 
+                                                       c$COD_LOCALIDAD)]*10000/llamadas_localidad$POBLACION
+  
+  llamadas_localidad[colName] <- replace( llamadas_localidad[colName],is.na( llamadas_localidad[colName]),0)
+  
+}
 

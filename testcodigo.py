@@ -1,3 +1,5 @@
+from pysnmp.hlapi import *
+
 def batteryLevel(user, authKey_sai, priveKey_sai, host, oid):
     level = ''
     iterator = getCmd(
